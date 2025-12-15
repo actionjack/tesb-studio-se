@@ -1,0 +1,21 @@
+diff --git a/main/plugins/pom.xml b/main/plugins/pom.xml
+--- a/main/plugins/pom.xml
++++ b/main/plugins/pom.xml
+@@ -185,15 +185,6 @@ This patch removes the defunct propertymapper-maven-plugin from Google Code.
+ 		</repository-->
+ 	</repositories>
+-	<pluginRepositories>
+-		<pluginRepository>
+-			<id>trojanbug.plugins</id>
+-			<url>https://propertymapper-maven-plugin.googlecode.com/svn/maven-repository/</url>
+-			<releases>
+-				<enabled>true</enabled>
+-				<updatePolicy>never</updatePolicy>
+-				<checksumPolicy>warn</checksumPolicy>
+-			</releases>
+-		</pluginRepository>
+-	</pluginRepositories>
++	<pluginRepositories>
++	</pluginRepositories>
+
+</project>

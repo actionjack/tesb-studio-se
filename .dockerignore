@@ -1,0 +1,20 @@
+# Docker build context exclusions
+.git
+.gitignore
+BUILD_NOTES.md
+README.md
+docs/
+build-output/
+
+# IDE files
+.idea/
+.eclipse/
+*.iml
+.project
+.classpath
+.settings/
+
+# Build artifacts
+target/
+bin/
+*.class

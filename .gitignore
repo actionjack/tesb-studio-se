@@ -2,3 +2,6 @@ bin
 target
 class
 classes
+
+# Generated validation reports
+build-output/

@@ -26,12 +26,39 @@ All Talend Studio repositories follow the same file structure:
 ```
 
 ## How to build projects
-Use maven to build projects. Go to tesb-tooling-se folder and in 
-command line type:
- mvn clean install -Dtycho.targetPlatform=<path_to_tos>
 
-For example,
- mvn clean install -Dtycho.targetPlatform=d:/TOS/TOS_ESB-r77287-V5.1.0NB
+### Option 1: Docker Build (Recommended)
+
+The easiest way to build this project is using Docker, which handles all dependencies automatically:
+
+```bash
+# Build the Docker image
+docker build -t tesb-studio-se:maven .
+
+# View build results
+docker run --rm tesb-studio-se:maven
+
+# Or use docker-compose
+docker-compose build maven-build
+docker-compose run maven-build
+```
+
+This downloads 72 runtime JARs (CXF, Camel, Spring, ActiveMQ) to the plugin `lib/` directories.
+
+> **Note:** See [BUILD_NOTES.md](BUILD_NOTES.md) for detailed documentation and [docs/build-architecture.md](docs/build-architecture.md) for architecture diagrams.
+
+### Option 2: Traditional Build (Requires Target Platform)
+
+If you have a full Talend Open Studio installation, use Maven with the target platform:
+
+```bash
+mvn clean install -Dtycho.targetPlatform=<path_to_tos>
+```
+
+For example:
+```bash
+mvn clean install -Dtycho.targetPlatform=d:/TOS/TOS_ESB-r77287-V5.1.0NB
+```
  
 
 ## Download

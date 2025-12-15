@@ -1,0 +1,43 @@
+version: '3.8'
+
+# Docker Compose for Talend ESB Studio SE build
+#
+# Usage:
+#   docker-compose build maven-build    # Build Maven dependency layer
+#   docker-compose run maven-build      # Run and show results
+#   docker-compose run debug            # Interactive shell for debugging
+
+services:
+  # Maven dependency management build (SUCCESS)
+  # Downloads runtime JARs to plugin lib/ directories
+  maven-build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tesb-studio-se:maven
+    container_name: tesb-maven-build
+    volumes:
+      - maven-cache:/root/.m2
+      - ./build-output/maven:/app/output
+    command: >
+      sh -c "cp -r /app/* /app/output/ 2>/dev/null || true && cat /app/build-summary.txt"
+
+  # Interactive shell for debugging
+  debug:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    image: tesb-studio-se:debug
+    container_name: tesb-debug
+    volumes:
+      - maven-cache:/root/.m2
+      - .:/workspace
+    working_dir: /workspace
+    command: /bin/bash
+    stdin_open: true
+    tty: true
+
+volumes:
+  maven-cache:
+    name: tesb-maven-cache

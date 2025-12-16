@@ -45,6 +45,20 @@ docker-compose run maven-build
 
 This downloads 69 runtime JARs (CXF, Camel, Spring, ActiveMQ) to the plugin `lib/` directories.
 
+#### Run the Demo
+
+To see the full build and validation pipeline in action:
+
+```bash
+# Interactive demo with pauses (for presentations)
+./demo.sh
+
+# Fast mode (for quick verification)
+DEMO_FAST=true ./demo.sh
+```
+
+The demo walks through all phases: project overview, build challenges, Docker build, artifact validation, and results summary.
+
 > **Note:** See [BUILD_NOTES.md](BUILD_NOTES.md) for detailed documentation and [docs/build-architecture.md](docs/build-architecture.md) for architecture diagrams.
 
 ### Option 2: Traditional Build (Requires Target Platform)

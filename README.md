@@ -43,7 +43,7 @@ docker-compose build maven-build
 docker-compose run maven-build
 ```
 
-This downloads 72 runtime JARs (CXF, Camel, Spring, ActiveMQ) to the plugin `lib/` directories.
+This downloads 69 runtime JARs (CXF, Camel, Spring, ActiveMQ) to the plugin `lib/` directories.
 
 > **Note:** See [BUILD_NOTES.md](BUILD_NOTES.md) for detailed documentation and [docs/build-architecture.md](docs/build-architecture.md) for architecture diagrams.
 
@@ -59,7 +59,24 @@ For example:
 ```bash
 mvn clean install -Dtycho.targetPlatform=d:/TOS/TOS_ESB-r77287-V5.1.0NB
 ```
- 
+
+## Validating Build Artifacts
+
+Verify the downloaded JARs are valid and usable:
+
+```bash
+# Build and run validation
+docker build -f Dockerfile.validate -t tesb-studio-se:validate .
+docker run --rm tesb-studio-se:validate
+```
+
+This performs:
+- Archive integrity checks (100% pass expected)
+- Manifest inspection (version, OSGi metadata)
+- Class loading smoke test (CXF, Camel, Spring)
+- Version consistency analysis
+
+Expected results: 69 JARs, 100% integrity, 19/21 classes load successfully.
 
 ## Download
 

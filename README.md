@@ -1,9 +1,4 @@
 # Talend Open Studio for ESB
-http://www.talend.com
-
-
-![alt text](http://www.talend.com/sites/default/files/logo-talend.jpg "Talend")
-
 
 > Contents
 

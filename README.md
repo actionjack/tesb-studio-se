@@ -54,6 +54,8 @@ DEMO_FAST=true ./demo.sh
 
 The demo walks through all phases: project overview, build challenges, Docker build, artifact validation, and results summary.
 
+[Watch the demo video](demo.mp4)
+
 > **Note:** See [BUILD_NOTES.md](BUILD_NOTES.md) for detailed documentation and [docs/build-architecture.md](docs/build-architecture.md) for architecture diagrams.
 
 ### Option 2: Traditional Build (Requires Target Platform)
